@@ -12,3 +12,7 @@ def Issequence(s,t):
                 return True
             j += 1
     return False
+
+s="acf" 
+t ="abcdef"
+print(Issequence(s,t))

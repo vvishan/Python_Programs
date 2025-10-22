@@ -5,8 +5,10 @@ def merge_intervals(intervals):
     for interval in intervals:
         if not  merge or merge[-1][1] < interval[0]:
             merge.append(interval)
+            #print(merge)
         else:
             merge[-1]= [merge[-1][0],max(merge[-1][1],interval[1])]
+            
     return merge
 
       

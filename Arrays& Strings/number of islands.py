@@ -10,20 +10,20 @@ grid = [
 def island(grid):
     if not grid or not grid[0]:
         return 0
-    rows = len(grid[0])
-    cols= len(grid)
-    island =0
+    rows = len(grid)
+    cols= len(grid[0])
+    islands =0
    
     for r in range(rows):
         for c in range(cols):
             if grid[r][c]=='1' or grid[r][c]==1:
-                island += 1
+                islands += 1
                 stack = [(r,c)]
                 while stack:
                     i,j = stack.pop()
                     if grid[i][j] == 0 or grid[i][j]=='0':
                         continue
-                    grid[i][j]=='0' # mark visited
+                    grid[i][j]='0' # mark visited
                     if i-1 >=0 and grid[i-1][j]=='1':
                         stack.append((i-1,j))
                     if i+1 < rows and grid[i+1][j]=='1':
@@ -33,7 +33,7 @@ def island(grid):
                     if j+1 < cols and grid[i][j+1]=='1':
                         stack.append((i,j+1))
 
-    return island
+    return islands
 
 print(island(grid))
 
