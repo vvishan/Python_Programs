@@ -34,6 +34,6 @@ print(text)
 
 #------------------------------------------------------------
 # find length of the longest word
-text1 = " python is great"
-words = text1.split()
-print(max(words,key= len))
+
+# words = text1.split()
+# print(max(words,key= len))
