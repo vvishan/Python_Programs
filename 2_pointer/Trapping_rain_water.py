@@ -16,6 +16,7 @@ def trap_rainwater(nums):
     summ =0
     for i in range(n):
         pot = min(max_left[i],max_right[i])
+        print(pot,max_left[i],max_right[i])
         summ += max(0,pot - nums[i])
     return summ
 
