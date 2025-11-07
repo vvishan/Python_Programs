@@ -1,12 +1,20 @@
-nums = [6,7,2,15]
-target = 9
-seen = {}
-for i, n in enumerate(nums):
-    if target -n in seen:
-        print(target,n)
-        print([seen[target-n], i])
-        break
-    seen[n] = i
-    print(seen)
-# 2:0,7:1,11:2,15:3
-#
+from collections import defaultdict
+from collections import Counter
+from math import ceil
+def smallerthancurrent(nums):
+    bucket ={}
+    sorted_num = sorted(nums)
+    res =[]
+
+    for i in range(len(nums)):
+        if sorted_num[i] not in bucket:
+            bucket[sorted_num[i]] = i
+    
+    for num in nums:
+        res.append(bucket[num])
+    return res 
+num =[8,2,3,4,5]
+print(smallerthancurrent(num))
+        
+
+    

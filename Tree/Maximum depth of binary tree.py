@@ -1,3 +1,4 @@
+from collections import deque
 class treenode:
     def __init__(self,val =0, left= None,right =None):
         self.val = val
@@ -13,3 +14,15 @@ class treenode:
 
         return 1 + max(left,right)
     
+    def maaxdepth2(self,root:treenode):
+        level = 0
+        if not root: return 0
+        q = deque([root])
+        for i in range(len(q)):
+            node = q.popleft()
+            if node.left:
+                q.append(node.left)
+            if node.right:
+                q.append(node.right)
+            level += 1
+        return level

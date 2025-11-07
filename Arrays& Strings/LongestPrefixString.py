@@ -11,7 +11,7 @@ def longestprefix(strings):
             if s[i] != strings[0][i]:
                 return s[:i]
         i += 1
-    return s[0][:i]
+    return strings[0][:i]
 
 st =["flow","flower","float"]
 

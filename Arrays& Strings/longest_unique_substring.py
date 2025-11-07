@@ -7,7 +7,7 @@ def longest_substring(s):
     for r,ch in enumerate(s):
         if ch in seen and seen[ch] >= l:
             l = seen[ch] +1
-            #print(l, seen[ch])
+            #print(l, seen[ch])  
         seen[ch] = r
         #print(r)
         best = max(best, r-l+1)

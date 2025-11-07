@@ -15,3 +15,20 @@ def group_anagrams(str):
 
 st =["eat", "tea", "tan", "ate", "nat", "bat"]
 print(group_anagrams(st))
+
+## alternate way
+
+def group_anagram2(str):
+    group_list={}
+
+    for s in str:
+        key = ''.join(sorted(s))
+        
+        if key not in group_list:
+            group_list[key] =[]
+    
+        group_list[key].append(s)
+    return group_list.values()
+
+
+print(group_anagram2(st))

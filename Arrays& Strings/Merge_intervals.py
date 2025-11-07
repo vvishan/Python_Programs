@@ -11,7 +11,6 @@ def merge_intervals(intervals):
             
     return merge
 
-      
  
         
 vals =[[5, 10], [1, 3], [2, 6]]

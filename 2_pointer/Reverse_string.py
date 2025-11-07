@@ -24,6 +24,17 @@ def resverse_string2(st):
         st[l],st[r] = st[r],st[l]
         l += 1
         r -= 1
-    return st
+    return ''.join(st)
 
 print(resverse_string2(str))
+
+## reverse string with sliding window with with fixed window size
+
+def reverse_string3(str, k):
+    n = len(str)
+    res = ""
+    for i in range(0,n,k):
+        window = str[i:i+k]
+        res += window[::-1]
+    return ''.join(res)
+print(reverse_string3("abcdefgh",3))

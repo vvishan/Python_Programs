@@ -14,7 +14,7 @@ def containDup2(nums):
     s = set()
 
     for i in range(n):
-        if i in s:
+        if nums[i] in s:
             return True
         else:
             s.add(nums[i])

@@ -10,5 +10,5 @@ def findclosestnum(num):
         else:
             return closest
         
-nums =[-1,-1,0,2,1]
+nums =[-1,-1,0,2,3]
 print(findclosestnum(nums))
