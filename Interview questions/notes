@@ -1,0 +1,108 @@
+Async 
+
+Async I/O allows you to perform other operations while waiting for I/O tasks to complete
+
+import asyncio
+
+async def fetch_data(n):
+    print(f"Start fetching {n}")
+    await asyncio.sleep(1)  # simulate I/O
+    print(f"Finished fetching {n}")
+    return n * 10
+
+async def main():
+    tasks = [fetch_data(i) for i in range(3)]
+    results = await asyncio.gather(*tasks)
+    print("Results:", results)
+
+asyncio.run(main())
+
+
+Output:
+Start fetching 0
+Start fetching 1
+Start fetching 2
+Finished fetching 0
+Finished fetching 1
+Finished fetching 2
+Results: [0, 10, 20]
+
+
+
+##### concurrent.features
+concurrent.futures can run blocking I/O tasks concurrently in threads or CPU-heavy tasks in processes.
+
+#### heapq
+- implements on binary heap(min-heap default)
+-efficient for finding the minimum and largest elements ,maintaining the top-k items
+
+#### deque
+-double ended queue
+-effecient in insertion and deletion in both the ends
+
+## defaultdict
+- dictonaries with default values
+- automatically intiates missing key values
+- aviods key error
+
+#### LRU  Least recently used
+
+it was used when designing the cache used to store capacity items : when full it removes least recently used
+
+use OrderedDict from collection
+OrderedDict.move_to_end(key) -> marks as recently used
+popitem(last= false) -> removes least recently used
+
+example:
+from collections import OrderedDict
+
+class LRUCache:
+    def __init__(self, capacity: int):
+        self.cache = OrderedDict()
+        self.capacity = capacity
+
+## min stack
+
+maintaining the secondary min_stack that kepps the track of minimum
+
+### Explain time complexity of list, set, and dict operations
+
+# List 
+-Backed by dynamic array(contiguous memory)
+-Fast for index and iteration
+-but slow for insertion/deletion. in middle
+time complexity - O(1)
+
+# Set
+-Backed by Hash table (like dict keys with out values)
+-Designed for uniqueness
+time complexity - O(1) for hashlookup
+                -O(n) for visit all elements
+
+# Dict
+- backed by Hash Table (mapping key-value)
+- Very fast insert,lookup,delete by key
+time complexity - O(1) for lookups
+                - O(n) for vist all
+
+# “Why are dict and set lookups O(1)?”
+- Because they use hashing to compute an index into an internal array
+
+## Explain how list comprehensions and generator expressions differ.
+
+# List comprehension
+- It create the new list in the memory
+- you can index it, reuse it or iterate multiple times
+
+# Generator expression
+- It return generator object -not a list
+- Elements are computed lazy, one at a time
+- it doesnt store in memory
+
+
+### Python for ML/AI
+
+## How to serialize and load ML models (pickle, joblib, torch.save)?
+
+# serialization:
+- saving an in memory python object

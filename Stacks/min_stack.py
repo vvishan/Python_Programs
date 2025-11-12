@@ -7,7 +7,7 @@ class minstack:
         self.stack.append(val)
 
         if not self.min_stack:
-            self.min_stack.append(val)
+            self.stack.append(val)
         elif self.min_stack[-1] < val:
             self.min_stack.append(self.min_stack[-1])
         else:
