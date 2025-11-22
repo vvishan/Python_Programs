@@ -7,12 +7,12 @@ def three_sum(nums):
 
     for i, num in enumerate(nums):
         h[num] = i
-        #print(h)
+        print(h)
 
     for i in range(n):
         for j in range(i+1,n):
             desired = -nums[i] -nums[j]
-            #print(desired,nums[i],nums[j])
+            print(f"{desired}:{nums[i]},{nums[j]}")
             if desired in h and h[desired]!= i and h[desired]!= j:
                 s.add(tuple(sorted([nums[i],nums[j],desired])))
     return s

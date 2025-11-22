@@ -11,17 +11,30 @@ def linkedlistdata(lists:ListNode):
 
     for i, node in enumerate(lists):
           if node:
+            heapq.heappush(heap, (node.val,i,node))
+    
+    D = ListNode()
+    cur = D
+
+    while heap:
+        val,i,node = heapq.heappop(heap)
+        cur.next = node
+        cur = node
+        node = node.next
+        if node:
             heapq.heappush(heap,(node.val,i,node))
-    return heap
-def build_linkedlist(arr):
-    dummy = ListNode(arr[0])
-    curr = dummy
-    for val in arr:
-        curr.next = ListNode(val)
-        curr = curr.next
-    return dummy
+    return D.next.val
 
 lis = [[2,4,3],[1,2,3],[3,6,7]]
-linkedlist = [build_linkedlist(a) for a in lis]
 
-print(linkedlistdata(linkedlist))
+def buildlinkedlist(arr):
+    linked = ListNode(arr[0])
+    cur = linked
+    for val in arr:
+        cur.next = ListNode(val)
+        cur = cur.next
+    return linked
+
+link = [buildlinkedlist(val) for val in lis]
+
+print(linkedlistdata(link))
