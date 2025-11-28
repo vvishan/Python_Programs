@@ -1,14 +1,19 @@
-def longest_repeating(nums):
-    n = len(nums)
-    l = 0
-    max_length = 0
-    s = set()
 
-    for r in range(n):
-        if nums[r] in s:
-            s.remove(nums[l])
-            l += 1
-        w = r- l + 1
-        max_length = max(max_length,w)
-        s.add(nums[r])
-    return max_length
+def max_avg_of_subarray(nums,k):
+    n = len(nums)
+    avg = 0
+    l =0
+
+    for r in range(k):
+        cur_sum += nums[r]
+    max_avg = cur_sum/k
+
+    for r in range(k,n):
+        cur_sum += nums[r]
+        cur_sum -= nums[r-k]
+
+        avg = cur_sum/k
+
+    max_av = max(max_avg,avg)
+    return max_av
+

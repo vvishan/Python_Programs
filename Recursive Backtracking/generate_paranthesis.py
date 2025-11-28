@@ -1,7 +1,7 @@
 def generate_paranthesis(n):
     ans , sol = [],[]
     def backtarck(open,close):
-        if len(sol) == 2 * n:
+        if len(sol) == 2 *n:
             ans.append("".join(sol))
             return
         
